@@ -1,0 +1,15 @@
+arquitetura: 
+    tudo ingles
+    fazer uma camada para o banco: repositories - FAZER EM UM PROXIMO PROJETO
+    nomeclatura:  livro+ prefixo OK
+        arquivo: singular OK
+        pasta: plural OK
+
+    rotas: estudar cors
+
+    retorno da api: {
+      "messenge": ''
+      "data" : []
+      "status": 404
+      "details": ""
+    }
