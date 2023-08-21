@@ -30,13 +30,13 @@ function getBook(req, resp) {
 function postBook(req, resp) {
     try {
         const livroNovo = req.body;
-        if(req.body.nome){
+        if(req.body.name){
             insereLivro(livroNovo);
             resp.status(201)
             resp.send('Livro inserido com sucesso');
         }else{
             resp.status(422);
-            resp.send("Campo nome é obrigatorio");
+            resp.send("Campo name é obrigatorio");
         }
     } catch (error) {
         error.status(500);

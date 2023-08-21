@@ -1,13 +1,20 @@
 const express = require("express");
 const routerBook = require("./router/routerBook")
-const server = express();
+const routerFavoritos = require("./router/routerFavorito")
+const cors = require("cors");
 
-server.use(express.json());
+
+const app = express();
 
 
-server.use('/books', routerBook)
+
+app.use(express.json());
+app.use(cors({origin: "*"}));
+
+app.use('/books', routerBook);
+app.use('/favoritos', routerFavoritos);
 
 const port = 8000;
-server.listen(port, () => {
+app.listen(port, () => {
     console.log(`Execotando na porta: ${port}`);
 });
