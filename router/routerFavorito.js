@@ -4,7 +4,7 @@ const { getFavoritos, postFavoritos, deletaFavorito } = require("../controllers/
 const router = Router(); 
 router.get('/', getFavoritos);
 
-router.post('/', postFavoritos);
+router.post('/:id', postFavoritos);
 router.delete('/:id', deletaFavorito);
 
 module.exports = router;

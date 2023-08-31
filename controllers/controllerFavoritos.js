@@ -15,7 +15,7 @@ function postFavoritos(req, resp) {
         const id = req.params.id
         insereFavorito(id);
         resp.status(201)
-        resp.send('Livro inserido com sucesso');
+        resp.send(`Livro inserido com sucesso: ${id}`);
 
     } catch (error) {
         error.status(500);

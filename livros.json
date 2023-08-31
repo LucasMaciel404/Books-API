@@ -8,7 +8,8 @@
         "src": "https://images-na.ssl-images-amazon.com/images/I/8135XQngs8L.jpg",
         "price": 5.99,
         "stok": 20,
-        "view": 10
+        "view": 10,
+        "categoria": "terror"
     },
     {
         "id": 2,
@@ -19,7 +20,9 @@
         "src": "https://m.media-amazon.com/images/I/919dh4AX2hL._AC_UF1000,1000_QL80_.jpg",
         "price": 5.99,
         "stok": 20,
-        "view": 5031
+        "view": 503,
+        "categoria": "terror" 
+        
     },
     {
         "id": 3,
@@ -30,7 +33,8 @@
         "src": "https://images-na.ssl-images-amazon.com/images/I/8135XQngs8L.jpg",
         "price": 5.99,
         "stok": 20,
-        "view": 895
+        "view": 895,
+        "categoria": "terror" 
     },
     {
         "id": 4,
@@ -41,13 +45,7 @@
         "src": "https://images-na.ssl-images-amazon.com/images/I/8135XQngs8L.jpg",
         "price": 5.99,
         "stok": 20,
-        "view": 255
-    },
-    {
-        "id": 5,
-        "name": "Veronika Decide Morrer ",
-        "src": "https://images-na.ssl-images-amazon.com/images/I/8135XQngs8L.jpg",
-        "author": "Paulo Coelho",
-        "createData": "2007"
+        "view": 255,
+        "categoria": "terror" 
     }
 ]
