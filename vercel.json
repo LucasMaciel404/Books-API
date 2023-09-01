@@ -5,6 +5,14 @@
         {
             "src": "server.js",
             "use": "@vercel /node"
+        },
+        {
+            "src": "/livros.json",
+            "use":"@vercel /node"
+        },
+        {
+            "src": "/favoritos.json",
+            "use":"@vercel /node"
         }
     ],
     "routes": [
