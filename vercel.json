@@ -13,11 +13,11 @@
             "dest": "server.js"
         },
         {
-            "src": "./livros.json",
+            "src": "/livros.json",
             "dest": "livros.json"
         },
         {
-            "src": "./favoritos.json",
+            "src": "/favoritos.json",
             "dest": "favoritos.json"
         }
     ]
