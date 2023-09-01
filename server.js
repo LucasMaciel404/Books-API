@@ -16,5 +16,5 @@ app.use('/favoritos', routerFavoritos);
 
 const port = 8000;
 app.listen(port, () => {
-    console.log(`Execotando na porta: ${port}`);
+    console.log(`Execotando na porta: http://localhost:${port}`);
 });

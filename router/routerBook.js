@@ -1,6 +1,6 @@
 const { Router }  = require("express");
 
-const { getBooks,getBook,postBook,patchBook,deletBook } = require("../controllers/controllerBook");
+const { getBooks,getBook,postBook,patchBook,deletBook } = require("./../controllers/controllerBook");
 const router = Router(); 
 router.get('/', getBooks);
 router.get('/:id', getBook);
