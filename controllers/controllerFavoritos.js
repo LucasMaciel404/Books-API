@@ -1,21 +1,23 @@
-const { getTodosFavoritos, insereFavorito, deletaFavoritoPorId } = require("../services/favoritos");
+const { getAllFavorite, insertFavorite, deletFavoriteToId } = require("../services/favorites");
 
-function getFavoritos(req, resp) {
+
+function getFavorite(req, resp) {
     try {
-        const livros = getTodosFavoritos();
-        resp.send(livros);
+        const book = getAllFavorite();
+        resp.send(book);
     } catch (error) {
         resp.status(500);
         resp.send(error.message);
     }
 }
 
-function postFavoritos(req, resp) {
+
+function postFavorites(req, resp) {
     try {
         const id = req.params.id
-        insereFavorito(id);
-        resp.status(201)
-        resp.send('Livro inserido com sucesso');
+        insertFavorite(id);
+        resp.status(201);
+        resp.send('Book inserted successfully');
 
     } catch (error) {
         error.status(500);
@@ -23,15 +25,16 @@ function postFavoritos(req, resp) {
     }
 }
 
-function deletaFavorito(req, resp){
+
+function deletFavorite(req, resp){
     try {
-        const id = req.params.id; // pega o id da url
+        const id = req.params.id; 
         if ( id && Number(id)){
-            deletaFavoritoPorId(id)
-            resp.send('delete concluido com sucesso!');
+            deletFavoriteToId(id);
+            resp.send('Book deleted successfully');
         }else{
-            resp.status(422) // dado não é igual ao esperado
-            resp.send('ID invalido!')
+            resp.status(422); 
+            resp.send("This ID is not valid.");
         }
     } catch (error) {
         error.status(500);
@@ -39,7 +42,7 @@ function deletaFavorito(req, resp){
     }
 }
 module.exports = {
-    getFavoritos,
-    postFavoritos, 
-    deletaFavorito
+    getFavorite,
+    postFavorites, 
+    deletFavorite
 }

@@ -1,12 +1,10 @@
 const { Router }  = require("express");
 
-const { getFavoritos, postFavoritos, deletaFavorito } = require("./../controllers/controllerFavoritos");
+const { getFavorite, postFavorites, deletFavorite } = require("./../controllers/controllerFavoritos");
 const router = Router(); 
-router.get('/', getFavoritos);
+router.get('/', getFavorite);
 
-router.post('/', postFavoritos);
-router.delete('/:id', deletaFavorito);
+router.post('/:id', postFavorites);
+router.delete('/:id', deletFavorite);
 
 module.exports = router;
-
-// post nao repetir
