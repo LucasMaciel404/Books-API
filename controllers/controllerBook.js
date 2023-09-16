@@ -1,13 +1,13 @@
 
-const { getTodosLivros, getLivroPorId, insereLivro, modificaLivro, deletaLivros } = require("../services/serverBook");
+const { getAllBooks, getBookId, insertBook, patchBook, deletBookToID } = require("../services/serverBook");
 
 function getBooks(req, resp) {
     try {
-        const livros = getTodosLivros();
-        resp.send(livros);
-    } catch (error) {
+        const books = getAllBooks();
+        resp.send(books);
+    } catch (e) {
         resp.status(500);
-        resp.send(error.message);
+        resp.send(e.message);
     }
 }
 
@@ -15,76 +15,75 @@ function getBook(req, resp) {
     try {
         const id = req.params.id;
         if ( id && Number(id)){
-            const livro = getLivroPorId(id);
+            const livro = getBookId(id);
             resp.send(livro);
         }else{
-            resp.status(422); // dado não é igual ao esperado
-            resp.send("ID invalido! ")
+            resp.status(422); 
+            resp.send("This ID is not valid.")
         }
-    }catch (error) {
+    }catch (e) {
         resp.status(500);
-        resp.send(error.message);
+        resp.send(e.message);
     }
 }
 
 function postBook(req, resp) {
     try {
-        const livroNovo = req.body;
+        const newBook = req.body;
         if(req.body.name){
-            insereLivro(livroNovo);
+            insertBook(newBook);
             resp.status(201)
-            resp.send('Livro inserido com sucesso');
+            resp.send('Book inserted successfully');
         }else{
             resp.status(422);
-            resp.send("Campo name é obrigatorio");
+            resp.send("Field name is required");
         }
-    } catch (error) {
-        error.status(500);
-        resp.send(error.message);
+    } catch (e) {
+        e.status(500);
+        resp.send(e.message);
     }
 }
 
-
-
-function patchBook(req, resp){
+function updateBook(req, resp){
     try {
         
         const id = req.params.id;
         if ( id && Number(id)){
             const body = req.body;
-            modificaLivro(body, id);
+            patchBook(body, id);
     
-            resp.send('deu certo meu consagrado!');
+            resp.send('Book updated successfully');
         }else{
-            resp.status(422); // dado não é igual ao esperado
-            resp.send("ID invalido! ")
+            resp.status(422); 
+            resp.send("This ID is not valid.")
         }
 
-    } catch (error) {
-        error.status(500);
-        resp.send(error.message);
+    } catch (e) {
+        e.status(500);
+        resp.send(e.message);
     }
 }
+
 function deletBook(req, resp){
     try {
-        const id = req.params.id; // pega o id da url
+        const id = req.params.id; 
         if ( id && Number(id)){
-            deletaLivros(id)
-            resp.send('delete concluido com sucesso!');
+            deletBookToID(id)
+            resp.send('delete completed successfully!');
         }else{
-            resp.status(422) // dado não é igual ao esperado
-            resp.send('ID invalido!')
+            resp.status(422) 
+            resp.send("This ID is not valid.")
         }
-    } catch (error) {
-        error.status(500);
-        resp.send(error.message);
+    } catch (e) {
+        e.status(500);
+        resp.send(e.message);
     }
 }
 
 module.exports = {
-    getBooks,
     getBook,
-    postBook,
-    patchBook,
+    getBooks, 
+    postBook, 
+    updateBook,
     deletBook
 };
