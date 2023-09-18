@@ -5,6 +5,7 @@ Esta **Rest-API** tem o intuito de ser a principal API de conexão com o banco d
 O que é preciso para execusão? </br>
 --> Versão utilizada do **Ñode.js** : v18.16.0</br>
 --> Além do **Node.js** você precisa de algumas depedencias, sendo elas o ``` cors ``` e o ``` express ```.</br>
+Execute os seguintes comandos no Node.js
 ``` 
     $ npm i cors
     $ npm i express 
