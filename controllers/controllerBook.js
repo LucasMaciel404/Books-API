@@ -50,6 +50,7 @@ function updateBook(req, resp){
         const id = req.params.id;
         if ( id && Number(id)){
             const body = req.body;
+            console.log(body)
             patchBook(body, id);
     
             resp.send('Book updated successfully');

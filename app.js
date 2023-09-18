@@ -1,6 +1,6 @@
 const express = require("express");
 const routerBook = require("./router/routerBook")
-const routerFavorite = require("./router/routerFavorito")
+const routerFavorite = require("./router/routerFavorite")
 const app = express();
 
 app.use(express.json());

@@ -9,7 +9,9 @@
         "price": 5.99,
         "stock": 20,
         "views": 10,
-        "category":["Ficção"],
+        "category": [
+            "Ficção"
+        ],
         "categoria": "terror"
     },
     {
@@ -22,7 +24,9 @@
         "price": 12.99,
         "stock": 15,
         "views": 15,
-        "category":["Fantasia"]
+        "category": [
+            "Fantasia"
+        ]
     },
     {
         "id": 3,
@@ -34,7 +38,9 @@
         "price": 8.99,
         "stock": 12,
         "views": 8,
-        "category":["Ficção"]
+        "category": [
+            "Ficção"
+        ]
     },
     {
         "id": 4,
@@ -45,8 +51,10 @@
         "src": "https://m.media-amazon.com/images/I/51LY9Fc+hnL._SY344_BO1,204,203,200_.jpg",
         "price": 7.49,
         "stock": 25,
-        "views": 20,
-        "category":["Ficção"]
+        "views": 50,
+        "category": [
+            "Ficção"
+        ]
     },
     {
         "id": 5,
@@ -58,7 +66,10 @@
         "price": 9.99,
         "stock": 18,
         "views": 14,
-        "category":["Ficção", "Distópica"]
+        "category": [
+            "Ficção",
+            "Distópica"
+        ]
     },
     {
         "id": 6,
@@ -70,7 +81,9 @@
         "price": 6.99,
         "stock": 10,
         "views": 12,
-        "category":["Clássico"]
+        "category": [
+            "Clássico"
+        ]
     },
     {
         "id": 7,
@@ -82,7 +95,9 @@
         "price": 11.99,
         "stock": 22,
         "views": 17,
-        "category":["Fantasia"]
+        "category": [
+            "Fantasia"
+        ]
     },
     {
         "id": 8,
@@ -94,7 +109,9 @@
         "price": 10.49,
         "stock": 14,
         "views": 9,
-        "category":["Ficção"]
+        "category": [
+            "Ficção"
+        ]
     },
     {
         "id": 9,
@@ -106,7 +123,9 @@
         "price": 7.99,
         "stock": 16,
         "views": 13,
-        "category":["Fantasia"]
+        "category": [
+            "Fantasia"
+        ]
     },
     {
         "id": 10,
@@ -118,7 +137,9 @@
         "price": 9.99,
         "stock": 20,
         "views": 15,
-        "category":["Fantasia"]
+        "category": [
+            "Fantasia"
+        ]
     },
     {
         "id": 11,
@@ -130,7 +151,9 @@
         "price": 8.99,
         "stock": 17,
         "views": 12,
-        "category":["Ficção"]
+        "category": [
+            "Ficção"
+        ]
     },
     {
         "id": 12,
@@ -142,7 +165,9 @@
         "price": 7.99,
         "stock": 14,
         "views": 11,
-        "category":["Clássico"]
+        "category": [
+            "Clássico"
+        ]
     },
     {
         "id": 13,
@@ -154,7 +179,9 @@
         "price": 6.49,
         "stock": 19,
         "views": 16,
-        "category":["Ficção"]
+        "category": [
+            "Ficção"
+        ]
     },
     {
         "id": 14,
@@ -166,7 +193,9 @@
         "price": 6.99,
         "stock": 23,
         "views": 13,
-        "category":["Ficção"]
+        "category": [
+            "Ficção"
+        ]
     },
     {
         "id": 15,
@@ -178,7 +207,9 @@
         "price": 7.99,
         "stock": 20,
         "views": 14,
-        "category":["Ficção"]
+        "category": [
+            "Ficção"
+        ]
     },
     {
         "id": 16,
@@ -190,7 +221,9 @@
         "price": 8.99,
         "stock": 18,
         "views": 12,
-        "category":["Fantasia"]
+        "category": [
+            "Fantasia"
+        ]
     },
     {
         "id": 17,
@@ -202,7 +235,9 @@
         "price": 9.49,
         "stock": 16,
         "views": 10,
-        "category":["Ficção"]
+        "category": [
+            "Ficção"
+        ]
     },
     {
         "id": 18,
@@ -214,7 +249,9 @@
         "price": 7.99,
         "stock": 21,
         "views": 15,
-        "category":["Ficção"]
+        "category": [
+            "Ficção"
+        ]
     },
     {
         "id": 19,
@@ -226,7 +263,9 @@
         "price": 10.99,
         "stock": 12,
         "views": 8,
-        "category":["Fantasia"]
+        "category": [
+            "Fantasia"
+        ]
     },
     {
         "id": 20,
@@ -238,7 +277,9 @@
         "price": 11.49,
         "stock": 19,
         "views": 13,
-        "category":["Autoajuda"]
+        "category": [
+            "Autoajuda"
+        ]
     },
     {
         "id": 21,
@@ -250,7 +291,9 @@
         "price": 8.99,
         "stock": 15,
         "views": 11,
-        "category":["Ficção"]
+        "category": [
+            "Ficção"
+        ]
     },
     {
         "id": 22,
@@ -262,7 +305,9 @@
         "price": 9.99,
         "stock": 18,
         "views": 14,
-        "category":["Suspense"]
+        "category": [
+            "Suspense"
+        ]
     },
     {
         "id": 23,
@@ -274,7 +319,9 @@
         "price": 6.99,
         "stock": 20,
         "views": 16,
-        "category":["Biografia"]
+        "category": [
+            "Biografia"
+        ]
     },
     {
         "id": 24,
@@ -286,7 +333,9 @@
         "price": 11.99,
         "stock": 14,
         "views": 9,
-        "category":["Ficção"]
+        "category": [
+            "Ficção"
+        ]
     },
     {
         "id": 25,
@@ -298,6 +347,9 @@
         "price": 7.49,
         "stock": 25,
         "views": 20,
-        "category":["Ficção","Infantil"]
+        "category": [
+            "Ficção",
+            "Infantil"
+        ]
     }
 ]

@@ -16,7 +16,6 @@ function patchBook(diferencas, id){
 
     const conteudoMudado = { ...livrosAtuais[indiceModificado], ...diferencas };
     livrosAtuais[indiceModificado] = conteudoMudado;
-
     fs.writeFileSync('books.json', JSON.stringify(livrosAtuais));
 }
 
