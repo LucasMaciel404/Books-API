@@ -2,9 +2,9 @@
 Esta **Rest-API** tem o intuito de ser a principal API de conexão com o banco de dados do "Books-front" que ainda esta em processo criativo para ser iniciado. Ambos os projetos serão projetos pessoais com intuito de colocar meu aprendizado em pratica.
 
 # Como iniciar 
-O que é preciso para execusão?
---> Versão utilizada do **Ñode.js** : v18.16.0
---> Além do **Node.js** você precisa de algumas depedencias, sendo elas o ``` cors ``` e o ``` express ```.
+O que é preciso para execusão? </br>
+--> Versão utilizada do **Ñode.js** : v18.16.0</br>
+--> Além do **Node.js** você precisa de algumas depedencias, sendo elas o ``` cors ``` e o ``` express ```.</br>
 ``` 
     $ npm i cors
     $ npm i express 
