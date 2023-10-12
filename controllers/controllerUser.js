@@ -1,90 +1,96 @@
+const UserServices = require("../services/userServices");
+const MyUserService = new UserServices();
 
-const { getAllUsers, getUserId, insertUser, patchUser, deletUserToID } = require("../services/Users");
-
-function getUsers(req, resp) {
-    try {
-        const Users = getAllUsers();
-        resp.send(Users);
-    } catch (e) {
-        resp.status(500);
-        resp.send(e.message);
-    }
-}
-
-function getUser(req, resp) {
-    try {
-        const id = req.params.id;
-        if ( id && Number(id)){
-            const livro = getUserId(id);
-            resp.send(livro);
-        }else{
-            resp.status(422); 
-            resp.send("This ID is not valid.")
+class UserController {
+    async getAllUsers(req, resp) {
+        try {
+            const Users = await await MyUserService.getAllUsers();
+            console.log(Users)
+            resp.send(Users);
+        } catch (e) {
+            resp.status(500);
+            resp.send(e.message);
         }
-    }catch (e) {
-        resp.status(500);
-        resp.send(e.message);
     }
-}
 
-function postUser(req, resp) {
-    try {
-        const newUser = req.body;
-        if(req.body.name){
-            insertUser(newUser);
-            resp.status(201)
-            resp.send('User inserted successfully');
-        }else{
-            resp.status(422);
-            resp.send("Field name is required");
+    async getUser(req, resp) {
+        try {
+            const id = req.params.id;
+            if (id && Number(id)) {
+                const livro = await MyUserService.getUserByPk(id);
+                resp.send(livro);
+            } else {
+                resp.status(422);
+                resp.send("This ID is not valid.")
+            }
+        } catch (e) {
+            resp.status(500);
+            resp.send(e.message);
         }
-    } catch (e) {
-        e.status(500);
-        resp.send(e.message);
     }
-}
 
-function updateUser(req, resp){
-    try {
-        
-        const id = req.params.id;
-        if ( id && Number(id)){
-            const body = req.body;
-            console.log(body)
-            patchUser(body, id);
-    
-            resp.send('User updated successfully');
-        }else{
-            resp.status(422); 
-            resp.send("This ID is not valid.")
+    postUser(req, resp) {
+        try {
+            const newUser = req.body;
+            if (!Array.isArray(newUser)) {
+                throw new Error("O corpo da requisição deve ser um array de usuários.");
+            }
+
+            newUser.forEach(user => {
+                if (user.nome && user.email && user.senha) {
+                    MyUserService.createUser(user);
+                } else {
+                    resp.status(422);
+                    resp.send(`Os campos nome, email e senha são obrigatórios.`);
+                    return; // Retorna para evitar a execução do código abaixo em caso de erro
+                }
+            });
+
+            resp.status(201);
+            resp.send('Usuários inseridos com sucesso.');
+        } catch (erro) {
+            console.error(erro); // Log do erro para debug
+            resp.status(500);
+            resp.send("Ocorreu um erro ao processar a requisição.");
         }
-
-    } catch (e) {
-        e.status(500);
-        resp.send(e.message);
     }
-}
 
-function deletUser(req, resp){
-    try {
-        const id = req.params.id; 
-        if ( id && Number(id)){
-            deletUserToID(id)
-            resp.send('delete completed successfully!');
-        }else{
-            resp.status(422) 
-            resp.send("This ID is not valid.")
+
+    updateUser(req, resp) {
+        try {
+            const id = Number(req.params.id);
+
+            if (id) {
+                const body = req.body;
+                MyUserService.updateUser(id, body);
+                console.log('ola');
+                resp.send('User updated successfully');
+            } else {
+                resp.status(422);
+                resp.send("This ID is not valid.");
+            }
+
+        } catch (e) {
+            e.status(500);
+            resp.send(e.message);
         }
-    } catch (e) {
-        e.status(500);
-        resp.send(e.message);
+    }
+
+    deleteUser(req, resp) {
+        try {
+            const id = req.params.id;
+            if (id && Number(id)) {
+                MyUserService.deleteUser(id);
+                resp.send('delete completed successfully!');
+            } else {
+                resp.status(422)
+                resp.send("This ID is not valid.")
+            }
+        } catch (e) {
+            e.status(500);
+            resp.send(e.message);
+        }
     }
 }
 
-module.exports = {
-    getUser,
-    getUsers, 
-    postUser, 
-    updateUser,
-    deletUser
-};
+module.exports = UserController;

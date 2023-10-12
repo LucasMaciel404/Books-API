@@ -8,7 +8,7 @@
         "src": "https://images-na.ssl-images-amazon.com/images/I/8135XQngs8L.jpg",
         "price": 5.99,
         "stock": 20,
-        "views": 10,
+        "views": 10,    
         "category": [
             "Ficção"
         ]
@@ -28,20 +28,6 @@
         ]
     },
     {
-        "id": 3,
-        "name": "Cem Anos de Solidão",
-        "author": "Gabriel García Márquez",
-        "createDate": "1967",
-        "stars": 3,
-        "src": "https://m.media-amazon.com/images/I/515cVYLIP9L._SY344_BO1,204,203,200_QL70_ML2_.jpg",
-        "price": 8.99,
-        "stock": 12,
-        "views": 8,
-        "category": [
-            "Ficção"
-        ]
-    },
-    {
         "id": 4,
         "name": "O Pequeno Príncipe",
         "author": "Antoine de Saint-Exupéry",
@@ -57,17 +43,17 @@
     },
     {
         "id": 5,
-        "name": "1984",
-        "author": "George Orwell",
-        "createDate": "1949",
-        "stars": 4,
-        "src": "https://m.media-amazon.com/images/I/41v9H-2YtdL._SX324_BO1,204,203,200_.jpg",
-        "price": 9.99,
-        "stock": 18,
-        "views": 14,
+        "name": "O Principezinho",
+        "author": "Antoine de Saint-Exupéry",
+        "createDate": "1943",
+        "stars": 5,
+        "src": "https://m.media-amazon.com/images/I/51TO7PCLMuL._SY344_BO1,204,203,200_QL70_ML2_.jpg",
+        "price": 7.49,
+        "stock": 25,
+        "views": 20,
         "category": [
             "Ficção",
-            "Distópica"
+            "Infantil"
         ]
     },
     {
@@ -337,18 +323,31 @@
         ]
     },
     {
-        "id": 25,
-        "name": "O Principezinho",
-        "author": "Antoine de Saint-Exupéry",
-        "createDate": "1943",
-        "stars": 5,
-        "src": "https://m.media-amazon.com/images/I/51TO7PCLMuL._SY344_BO1,204,203,200_QL70_ML2_.jpg",
-        "price": 7.49,
-        "stock": 25,
-        "views": 20,
+        "id": 3,
+        "name": "Cem Anos de Solidão",
+        "author": "Gabriel García Márquez",
+        "createDate": "1967",
+        "stars": 3,
+        "src": "https://m.media-amazon.com/images/I/515cVYLIP9L._SY344_BO1,204,203,200_QL70_ML2_.jpg",
+        "price": 8.99,
+        "stock": 12,
+        "views": 8,
         "category": [
-            "Ficção",
-            "Infantil"
+            "Fantasia"
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Cem Anos de Solidão",
+        "author": "Gabriel García Márquez",
+        "createDate": "1967",
+        "stars": 3,
+        "src": "https://m.media-amazon.com/images/I/515cVYLIP9L._SY344_BO1,204,203,200_QL70_ML2_.jpg",
+        "price": 8.99,
+        "stock": 12,
+        "views": 8,
+        "category": [
+            "Fantasia"
         ]
     }
 ]

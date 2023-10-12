@@ -11,12 +11,11 @@ function deletFavoriteToID(id){
     fs.writeFileSync("favoritos.json", JSON.stringify(livrosFiltrados))
 }
 function insertFavorite(id){
-    const livros = JSON.parse(fs.readFileSync("./livros.json"));
+    const livros = JSON.parse(fs.readFileSync("./books.json"));
     const favoritos = JSON.parse(fs.readFileSync("./favorite.json"));
-
     const livroInserido = livros.find( livro => livro.id == id);
     const novaListaDeLivros =[...favoritos, livroInserido];
-    fs.writeFileSync("favoritos.json", JSON.stringify(novaListaDeLivros))
+    fs.writeFileSync("./favorite.json", JSON.stringify(novaListaDeLivros));
 }
 
 
