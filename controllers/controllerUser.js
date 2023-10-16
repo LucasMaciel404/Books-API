@@ -17,8 +17,8 @@ class UserController {
         try {
             const id = req.params.id;
             if (id && Number(id)) {
-                const livro = await MyUserService.getUserByPk(id);
-                resp.send(livro);
+                const Usuario = await MyUserService.getUserByPk(id);
+                resp.send(Usuario);
             } else {
                 resp.status(422);
                 resp.send("This ID is not valid.")
@@ -47,7 +47,7 @@ class UserController {
             });
 
             resp.status(201);
-            resp.send('Usuários inseridos com sucesso.');
+            resp.send('Usuário inserido com sucesso.');
         } catch (erro) {
             console.error(erro); // Log do erro para debug
             resp.status(500);
@@ -87,7 +87,7 @@ class UserController {
                 resp.send("This ID is not valid.")
             }
         } catch (e) {
-            e.status(500);
+            resp.status(500);
             resp.send(e.message);
         }
     }

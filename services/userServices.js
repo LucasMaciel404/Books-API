@@ -1,7 +1,6 @@
 const Usuario = require("../Models/ModelDB/User/index");
 
 class userServices {
-
         // Pesquisa um usuario pelo seu ID
         async getUserByPk(id) {
                 const user = await Usuario.findByPk(id);
@@ -37,6 +36,8 @@ class userServices {
                         usuario[campo] = arrayModificacoes[campo];
                 }
                 // Salvar as alterações no banco de dados
+
+
                 await usuario.save();
 
                 return usuario; // Retorna o usuário atualizado
