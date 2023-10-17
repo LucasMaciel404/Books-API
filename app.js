@@ -1,20 +1,27 @@
 const express = require("express");
-const routerBook = require("./router/routerBook")
-const routerUser = require("./router/routerUser")
-const routerFavorite = require("./router/routerFavorite")
-const app = express();
-
-app.use(express.json());
-
 const cors = require("cors");
-app.use(cors({origin: "*"})); // Liberando do acesso para todos
+
+// Sincronizando com o banco de dados:
+const SincDatabase = require("./Models/ModelDB/conect/bd").SincronizaDb;
+SincDatabase().then(() => app.emit("SincDatabase")).catch(err => console.log(err));
 
 
-app.use('/books', routerBook);
+// Chamando minhas rotas:
+const routerBook = require("./router/routerBook");
+const routerUser = require("./router/routerUser");
+
+const app = express();
+app.use(express.json());
+app.use(cors({ origin: "*" })); // Liberando do acesso para todos 
+
 app.use('/Users', routerUser);
-app.use('/favorites', routerFavorite);
+app.use('/books', routerBook);
+
 
 const port = 8000;
-app.listen(port, () => {
-    console.log(`Running on port: http://localhost:${port}`);
-});
+// Listando operações da minha API
+app.on('SincDatabase', () => {
+    app.listen(port, () => {
+        console.log(`Running on port: http://localhost:${port}`);
+    });
+})

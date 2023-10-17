@@ -1,0 +1,115 @@
+[
+    {
+        "id": 25,
+        "name": "O Principezinho",
+        "author": "Antoine de Saint-Exupéry",
+        "createDate": "1943",
+        "stars": 5,
+        "src": "https://m.media-amazon.com/images/I/51TO7PCLMuL._SY344_BO1,204,203,200_QL70_ML2_.jpg",
+        "price": 7.49,
+        "stock": 25,
+        "views": 20,
+        "category": [
+            "Ficção",
+            "Infantil"
+        ]
+    },
+    {
+        "id": 7,
+        "name": "O Senhor dos Anéis: A Sociedade do Anel",
+        "author": "J.R.R. Tolkien",
+        "createDate": "1954",
+        "stars": 2,
+        "src": "https://m.media-amazon.com/images/I/41RBd2DvmgL._SY344_BO1,204,203,200_QL70_ML2_.jpg",
+        "price": 11.99,
+        "stock": 22,
+        "views": 17,
+        "category": [
+            "Fantasia"
+        ]
+    },
+    {
+        "id": 17,
+        "name": "A Culpa é das Estrelas",
+        "author": "John Green",
+        "createDate": "2012",
+        "stars": 4,
+        "src": "https://m.media-amazon.com/images/I/51ED6WxFy8L._SY344_BO1,204,203,200_QL70_ML2_.jpg",
+        "price": 9.49,
+        "stock": 16,
+        "views": 10,
+        "category": [
+            "Ficção"
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Harry Potter e a Pedra Filosofal",
+        "author": "J.K. Rowling",
+        "createDate": "1997",
+        "stars": 4,
+        "src": "https://images-na.ssl-images-amazon.com/images/I/81YOuOGFCJL.jpg",
+        "price": 12.99,
+        "stock": 15,
+        "views": 15,
+        "category": [
+            "Fantasia"
+        ]
+    },
+    {
+        "id": 20,
+        "name": "A Coragem de Ser Imperfeito",
+        "author": "Brené Brown",
+        "createDate": "2010",
+        "stars": 4,
+        "src": "https://m.media-amazon.com/images/I/51x5aXdYW-L._SY344_BO1,204,203,200_QL70_ML2_.jpg",
+        "price": 11.49,
+        "stock": 19,
+        "views": 13,
+        "category": [
+            "Autoajuda"
+        ]
+    },
+    {
+        "id": 4,
+        "name": "O Pequeno Príncipe",
+        "author": "Antoine de Saint-Exupéry",
+        "createDate": "1943",
+        "stars": 3,
+        "src": "https://m.media-amazon.com/images/I/51LY9Fc+hnL._SY344_BO1,204,203,200_.jpg",
+        "price": 7.49,
+        "stock": 25,
+        "views": 50,
+        "category": [
+            "Ficção"
+        ]
+    },
+    {
+        "id": 1,
+        "name": "Veronika Decide Morrer",
+        "author": "Jeff Kinney",
+        "createDate": "2007",
+        "stars": 5,
+        "src": "https://images-na.ssl-images-amazon.com/images/I/8135XQngs8L.jpg",
+        "price": 5.99,
+        "stock": 20,
+        "views": 10,
+        "category": [
+            "Ficção"
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Cem Anos de Solidão",
+        "author": "Gabriel García Márquez",
+        "createDate": "1967",
+        "stars": 3,
+        "src": "https://m.media-amazon.com/images/I/515cVYLIP9L._SY344_BO1,204,203,200_QL70_ML2_.jpg",
+        "price": 8.99,
+        "stock": 12,
+        "views": 8,
+        "category": [
+            "Ficção"
+        ]
+    }
+]
