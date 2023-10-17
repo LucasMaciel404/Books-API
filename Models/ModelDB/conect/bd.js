@@ -1,5 +1,5 @@
 const express = require("express");
-const app = express();
+
 
 // Pegando informações de conexão de um .env para segurança dos dados.
 require('dotenv').config();
@@ -18,7 +18,13 @@ const Sequelize = require('sequelize');
 const Connection = new Sequelize(DB_NAME, DB_USER, DB_PASS, {
     host: DB_HOST,
     dialect: DB_TYPE,
-    port: DB_PORT
+    port: DB_PORT,
+    dialectOptions: {
+        ssl: {
+            require: true,
+            rejectUnauthorized: false, // Permite conexões com certificados autoassinados (para desenvolvimento)
+        }
+    },
 });
 
 const SincronizaDb = async () => {
@@ -26,10 +32,10 @@ const SincronizaDb = async () => {
     const Livros = require("../Book/index");
     await Connection.sync();
 }
-const TesteConexao = async() => {    
+const TesteConexao = async () => {
     // Teste de conexão:
     try {
-        await db.authenticate();
+        await Connection.authenticate();
         console.log('Connection has been established successfully.');
     } catch (error) {
         console.error('Unable to connect to the database:', error);
@@ -41,4 +47,4 @@ module.exports = {
     Connection,
     TesteConexao,
     SincronizaDb
-    }
+}
