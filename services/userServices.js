@@ -43,6 +43,26 @@ class userServices {
                 return usuario; // Retorna o usuário atualizado
         }
 
+        // Atualiza um usuario
+        async updateUserFavoritos(id, modificacao) {
+                
+                // Encontrar o usuário pelo ID
+                const usuario = await Usuario.findByPk(id); 
+
+                // verificando a existencia do usuario:
+                if (!usuario) {
+                        throw new Error('Usuário não encontrado');
+                }
+
+                // Atualizar apenas os campos fornecidos no array de modificações
+                usuario.favoritos = `${usuario.favoritos}, ${modificacao}`;
+                
+                // Salvar as alterações no banco de dados
+                await usuario.save();
+
+                return usuario; // Retorna o usuário atualizado
+        }
+
         // Deleta um usuario
         async deleteUser(id) {
                 const user = await Usuario.destroy({ where: { id: id } });

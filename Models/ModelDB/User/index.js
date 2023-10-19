@@ -22,7 +22,7 @@ const Usuario = database.define('usuarios', {
         allowNull: false
     },
     favoritos: {
-        type: sequelize.JSON,
+        type: sequelize.STRING,
         allowNull: true
     }
 });

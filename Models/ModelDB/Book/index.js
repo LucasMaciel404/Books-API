@@ -21,7 +21,7 @@ const Livro = database.define('Livros', {
         allowNull: false
     },
     avaliation:{
-        type: sequelize.INTEGER,
+        type: sequelize.STRING,
         allowNull: false
     },
     image:{
@@ -29,7 +29,7 @@ const Livro = database.define('Livros', {
         allowNull: false
     },
     price:{
-        type: sequelize.INTEGER,
+        type: sequelize.STRING,
         allowNull: false
     },
     amout:{
@@ -45,7 +45,7 @@ const Livro = database.define('Livros', {
         allowNull: false
     },
     description:{
-        type: sequelize.STRING,
+        type: sequelize.STRING(1000),
         allowNull: false
     }
 });

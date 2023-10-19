@@ -37,9 +37,7 @@ class BookController {
             if (!Array.isArray(newBook)) {
                 throw new Error("O corpo da requisição deve ser um array de Livros.");
             }
-            console.log(newBook)
             newBook.forEach(book => {
-                console.log(book.nome)
                 if (book.nome && book.author && book.bookDate && book.avaliation && book.image && book.price && book.amout && book.views && book.description && book.type) {
                     MyBookService.createBooks(book);
                 } else {

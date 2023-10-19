@@ -62,14 +62,29 @@ class UserController {
 
             if (id) {
                 const body = req.body;
-                MyUserService.updateUser(id, body);
-                console.log('ola');
+                MyUserService.updateUser(id, body[0]);
                 resp.send('User updated successfully');
             } else {
                 resp.status(422);
                 resp.send("This ID is not valid.");
             }
+        } catch (e) {
+            e.status(500);
+            resp.send(e.message);
+        }
+    }
+    updateUserFavoritos(req, resp) {
+        try {
+            const id = Number(req.params.id);
 
+            if (id) {
+                const body = req.body;
+                MyUserService.updateUserFavoritos(id, body[0]);
+                resp.send('User updated successfully');
+            } else {
+                resp.status(422);
+                resp.send("This ID is not valid.");
+            }
         } catch (e) {
             e.status(500);
             resp.send(e.message);
