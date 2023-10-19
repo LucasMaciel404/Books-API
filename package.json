@@ -1,9 +1,13 @@
 {
   "name": "books-server",
   "version": "1.0.0",
-  "main": "server.js",
+  "main": "app.js",
+  "engines": {
+    "node": "18"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "author": "Lucas Maciel",
   "license": "ISC",
