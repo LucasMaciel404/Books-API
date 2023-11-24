@@ -8,7 +8,7 @@ const Livro = database.define('Livros', {
         allowNull: false,
         primaryKey: true
     },
-    nome:{
+    name:{
         type: sequelize.STRING,
         allowNull: false,
     },
@@ -16,12 +16,12 @@ const Livro = database.define('Livros', {
         type: sequelize.STRING,
         allowNull: false
     },
-    bookDate:{
-        type: sequelize.STRING,
+    year:{
+        type: sequelize.INTEGER,
         allowNull: false
     },
-    avaliation:{
-        type: sequelize.STRING,
+    stars:{
+        type: sequelize.INTEGER,
         allowNull: false
     },
     image:{
@@ -29,23 +29,23 @@ const Livro = database.define('Livros', {
         allowNull: false
     },
     price:{
-        type: sequelize.STRING,
+        type: sequelize.DECIMAL(10, 2),
         allowNull: false
     },
-    amout:{
-        type: sequelize.STRING,
+    units:{
+        type: sequelize.INTEGER,
         allowNull: false
     },
-    views:{
-        type: sequelize.STRING,
+    view:{
+        type: sequelize.INTEGER,
         allowNull: false
     },
     type:{
-        type: sequelize.STRING,
+        type: sequelize.ARRAY(sequelize.STRING),
         allowNull: false
     },
     description:{
-        type: sequelize.STRING(1000),
+        type: sequelize.STRING(1500),
         allowNull: false
     }
 });

@@ -1,0 +1,195 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "MyBooks",
+        "description": "API que serve como back-end para o projeto Books.API de consulta de livros, e cadastro de usuarios",
+        "contact": {
+            "email": "macielluca487@gmail.com"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8000/",
+            "description": "API"
+        }
+    ],
+    "paths": {
+        "/books": {
+            "get": {
+                "summary": "retorna uma lista de livros",
+                "description": "Retorna todos os livros presentes no banco de dados.",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Adicionar livros no banco de dados",
+                "description": "Esta rota permite adicionar múltiplos livros ao banco de dados.",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "nome": {
+                                            "type": "string",
+                                            "description": "Nome do livro"
+                                        },
+                                        "author": {
+                                            "type": "string",
+                                            "description": "Nome do autor"
+                                        },
+                                        "bookDate": {
+                                            "type": "string",
+                                            "description": "Data de lançamento do livro (formato string)"
+                                        },
+                                        "avaliation": {
+                                            "type": "string",
+                                            "description": "Avaliação do livro (formato string)"
+                                        },
+                                        "image": {
+                                            "type": "string",
+                                            "description": "URL da imagem do livro"
+                                        }
+                                    },
+                                    "required": [
+                                        "nome",
+                                        "author",
+                                        "bookDate",
+                                        "avaliation",
+                                        "image"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "responses": {
+                "200": {
+                    "description": "OK"
+                }
+            }
+        },
+        "/books/{id}": {
+            "get": {
+                "summary": "retorna uma lista de livros",
+                "description": "Retorna as informações de um livro especifico.",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": false,
+                        "description": "id do livro especifico a ser pesquisado",
+                        "schema": {
+                            "type": "integer",
+                            "minimun": 1
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            },
+            "patch": {
+                "summary": "Atualiza livros no banco de dados",
+                "description": "Esta rota permite adicionar um ou múltiplos livros ao banco de dados.",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": false,
+                        "description": "id do livro especifico a ser pesquisado",
+                        "schema": {
+                            "type": "integer",
+                            "minimun": 1
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "name": {
+                                            "type": "string",
+                                            "description": "Nome do livro"
+                                        },
+                                        "author": {
+                                            "type": "string",
+                                            "description": "Nome do autor"
+                                        },
+                                        "year": {
+                                            "type": "integer",
+                                            "description": "Ano de publicação do livro"
+                                        },
+                                        "stars": {
+                                            "type": "integer",
+                                            "description": "Número de estrelas de avaliação"
+                                        },
+                                        "image": {
+                                            "type": "string",
+                                            "description": "URL da imagem do livro"
+                                        },
+                                        "price": {
+                                            "type": "number",
+                                            "description": "Preço do livro"
+                                        },
+                                        "units": {
+                                            "type": "integer",
+                                            "description": "Número de unidades disponíveis"
+                                        },
+                                        "view": {
+                                            "type": "integer",
+                                            "description": "Número de visualizações"
+                                        },
+                                        "type": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            },
+                                            "description": "Gêneros do livro"
+                                        },
+                                        "description": {
+                                            "type": "string",
+                                            "description": "Descrição do livro"
+                                        }
+                                    },
+                                    "required": [
+                                        "name",
+                                        "author",
+                                        "year",
+                                        "stars",
+                                        "image",
+                                        "price",
+                                        "units",
+                                        "view",
+                                        "type",
+                                        "description"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "responses": {
+                "200": {
+                    "description": "OK"
+                }
+            }
+        }
+    }
+}

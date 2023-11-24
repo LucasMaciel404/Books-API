@@ -30,6 +30,7 @@ const Connection = new Sequelize(DB_NAME, DB_USER, DB_PASS, {
 const SincronizaDb = async () => {
     const Usuarios = require("../User/index");
     const Livros = require("../Book/index");
+    const Session = require("../../Session/index");
     await Connection.sync();
 }
 const TesteConexao = async () => {
