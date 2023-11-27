@@ -1,5 +1,5 @@
 const sequelize = require('sequelize');
-const database = require('../conect/bd').Connection;
+const database = require('./connect').Connection;
 
 const Livro = database.define('Livros', {
     id: {
@@ -8,7 +8,7 @@ const Livro = database.define('Livros', {
         allowNull: false,
         primaryKey: true
     },
-    nome:{
+    name:{
         type: sequelize.STRING,
         allowNull: false,
     },
@@ -16,11 +16,11 @@ const Livro = database.define('Livros', {
         type: sequelize.STRING,
         allowNull: false
     },
-    bookDate:{
-        type: sequelize.STRING,
+    year:{
+        type: sequelize.INTEGER,
         allowNull: false
     },
-    avaliation:{
+    stars:{
         type: sequelize.INTEGER,
         allowNull: false
     },
@@ -29,15 +29,15 @@ const Livro = database.define('Livros', {
         allowNull: false
     },
     price:{
+        type: sequelize.DECIMAL(10, 2),
+        allowNull: false
+    },
+    units:{
         type: sequelize.INTEGER,
         allowNull: false
     },
-    amout:{
-        type: sequelize.STRING,
-        allowNull: false
-    },
-    views:{
-        type: sequelize.STRING,
+    view:{
+        type: sequelize.INTEGER,
         allowNull: false
     },
     type:{
@@ -45,7 +45,7 @@ const Livro = database.define('Livros', {
         allowNull: false
     },
     description:{
-        type: sequelize.STRING,
+        type: sequelize.STRING(1500),
         allowNull: false
     }
 });

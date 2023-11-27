@@ -1,27 +1,32 @@
-const express = require("express");
+const config = require('./config');
+const Configs = new config();
+
+const express = require("express")
+const app = express();
+
+const swaggerUi = require('swagger-ui-express');
+const swaggerDOC = require('./swagger.json');
+
+Configs.sessions()
 const cors = require("cors");
 
-// Sincronizando com o banco de dados:
-const SincDatabase = require("./Models/ModelDB/conect/bd").SincronizaDb;
+app.use(express.json());
+app.use(cors({ origin: "*" }));
+
+app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerDOC));
+app.use('/Users', Configs.routerUser);
+app.use('/Validate', Configs.routerLogin);
+app.use('/books', Configs.routerBook);
+app.use('', (request, response) => {
+    response.status(404).send('Rota não encontrada.')
+});
+
+const SincDatabase = require("./Models/connect").SincronizaDb;
 SincDatabase().then(() => app.emit("SincDatabase")).catch(err => console.log(err));
 
-
-// Chamando minhas rotas:
-const routerBook = require("./router/routerBook");
-const routerUser = require("./router/routerUser");
-
-const app = express();
-app.use(express.json());
-app.use(cors({ origin: "*" })); // Liberando do acesso para todos 
-
-app.use('/Users', routerUser);
-app.use('/books', routerBook);
-
-
 const port = 8000;
-// Listando operações da minha API
 app.on('SincDatabase', () => {
     app.listen(port, () => {
         console.log(`Running on port: http://localhost:${port}`);
     });
-})
+});

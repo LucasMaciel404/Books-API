@@ -7,7 +7,6 @@ const router = Router();
 router.get('/', Controller.getAllUsers);
 router.get('/:id', Controller.getUser);
 
-router.post('/', Controller.postUser);
 router.patch('/:id', Controller.updateUser);
 router.delete('/:id', Controller.deleteUser);
 

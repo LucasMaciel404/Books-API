@@ -1,0 +1,251 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "MyBooks",
+        "description": "API que serve como back-end para o projeto Books.API de consulta de livros, e cadastro de usuarios",
+        "contact": {
+            "email": "macielluca487@gmail.com"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8000/",
+            "description": "API"
+        }
+    ],
+    "paths": {
+        "/books": {
+            "get": {
+                "summary": "retorna uma lista de livros",
+                "description": "Retorna todos os livros presentes no banco de dados.",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Adicionar livros no banco de dados",
+                "description": "Esta rota permite adicionar múltiplos livros ao banco de dados.",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "name": {
+                                            "type": "string",
+                                            "description": "Nome do livro",
+                                            "example": "Diario de um Banana"
+                                        },
+                                        "author": {
+                                            "type": "string",
+                                            "description": "Nome do autor",
+                                            "example": "Jeff Kinney"
+                                        },
+                                        "year": {
+                                            "type": "integer",
+                                            "description": "Data de lançamento do livro (formato string)",
+                                            "example": "1999"
+                                        },
+                                        "stars": {
+                                            "type": "integer",
+                                            "description": "Avaliação do livro (formato string)",
+                                            "example": "1998"
+                                        },
+                                        "image": {
+                                            "type": "string",
+                                            "description": "URL da imagem do livro",
+                                            "example": "https://m.media-amazon.com/images/I/517sVQygmHL._SY445_SX342_.jpg"
+                                        },
+                                        "price": {
+                                            "type": "integer",
+                                            "description": "Preço do produto",
+                                            "example": "22.50"
+                                        },
+                                        "units": {
+                                            "type": "integer",
+                                            "description": "Quantidade de produto disponivel",
+                                            "example": "20"
+                                        },
+                                        "view": {
+                                            "type": "integer",
+                                            "description": "Numero de visualizações do produto",
+                                            "example": "1500"
+                                        },
+                                        "type": {
+                                            "type": "string",
+                                            "description": "Array de categorias atribuidas ao livro",
+                                            "example": "['comedia', 'livre']"
+                                        },
+                                        "description": {
+                                            "type": "string",
+                                            "description": "Descrição do livro. max: 1500 characters",
+                                            "example": "Em 'O Diário de um Banana', mergulhe na hilária vida de Greg Heffley, um adolescente desajeitado que enfrenta desafios diários na escola e em casa. Suas aventuras são registradas com humor único, revelando as lutas universais da adolescência. Uma jornada irresistível repleta de risadas e situações constrangedoras."
+                                        }
+                                    },
+                                    "required": [
+                                        "nome",
+                                        "author",
+                                        "bookDate",
+                                        "avaliation",
+                                        "image", 
+                                        "perice",
+                                        "units",
+                                        "view",
+                                        "type",
+                                        "description"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "responses": {
+                "200": {
+                    "description": "OK"
+                }
+            }
+        },
+        "/books/{id}": {
+            "get": {
+                "summary": "retorna uma lista de livros",
+                "description": "Retorna as informações de um livro especifico.",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": false,
+                        "description": "id do livro especifico a ser pesquisado",
+                        "schema": {
+                            "type": "integer",
+                            "minimun": 1
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            },
+            "patch": {
+                "summary": "Atualiza livros no banco de dados",
+                "description": "Esta rota permite adicionar um ou múltiplos livros ao banco de dados.",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": false,
+                        "description": "id do livro especifico a ser pesquisado",
+                        "schema": {
+                            "type": "integer",
+                            "minimun": 1
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "name": {
+                                            "type": "string",
+                                            "description": "Nome do livro"
+                                        },
+                                        "author": {
+                                            "type": "string",
+                                            "description": "Nome do autor"
+                                        },
+                                        "year": {
+                                            "type": "integer",
+                                            "description": "Ano de publicação do livro"
+                                        },
+                                        "stars": {
+                                            "type": "integer",
+                                            "description": "Número de estrelas de avaliação"
+                                        },
+                                        "image": {
+                                            "type": "string",
+                                            "description": "URL da imagem do livro"
+                                        },
+                                        "price": {
+                                            "type": "number",
+                                            "description": "Preço do livro"
+                                        },
+                                        "units": {
+                                            "type": "integer",
+                                            "description": "Número de unidades disponíveis"
+                                        },
+                                        "view": {
+                                            "type": "integer",
+                                            "description": "Número de visualizações"
+                                        },
+                                        "type": {
+                                            "type": "string",
+                                            "items": {
+                                                "type": "string"
+                                            },
+                                            "description": "Gêneros do livro"
+                                        },
+                                        "description": {
+                                            "type": "string",
+                                            "description": "Descrição do livro",
+                                            "example":"['comedia', 'livre']"
+                                        }
+                                    },
+                                    "required": [
+                                        "name",
+                                        "author",
+                                        "year",
+                                        "stars",
+                                        "image",
+                                        "price",
+                                        "units",
+                                        "view",
+                                        "type",
+                                        "description"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Deleta um livro da base de dados",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": false,
+                        "description": "id do livro especifico a ser pesquisado",
+                        "schema": {
+                            "type": "integer",
+                            "minimun": 1
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            },
+            "responses": {
+                "200": {
+                    "description": "OK"
+                }
+            }
+        }
+    }
+}
