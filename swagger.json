@@ -10,8 +10,12 @@
     },
     "servers": [
         {
-            "url": "http://localhost:8000/",
-            "description": "API"
+            "description": "servidor local",
+            "url": "http://localhost:8000/"
+        },
+        {
+            "description": "servidor online",
+            "url": "https://books-bc6w.onrender.com/"
         }
     ],
     "paths": {
