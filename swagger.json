@@ -37,25 +37,55 @@
                                 "items": {
                                     "type": "object",
                                     "properties": {
-                                        "nome": {
+                                        "name": {
                                             "type": "string",
-                                            "description": "Nome do livro"
+                                            "description": "Nome do livro",
+                                            "example": "Diario de um Banana"
                                         },
                                         "author": {
                                             "type": "string",
-                                            "description": "Nome do autor"
+                                            "description": "Nome do autor",
+                                            "example": "Jeff Kinney"
                                         },
-                                        "bookDate": {
-                                            "type": "string",
-                                            "description": "Data de lançamento do livro (formato string)"
+                                        "year": {
+                                            "type": "integer",
+                                            "description": "Data de lançamento do livro (formato string)",
+                                            "example": "1999"
                                         },
-                                        "avaliation": {
-                                            "type": "string",
-                                            "description": "Avaliação do livro (formato string)"
+                                        "stars": {
+                                            "type": "integer",
+                                            "description": "Avaliação do livro (formato string)",
+                                            "example": "1998"
                                         },
                                         "image": {
                                             "type": "string",
-                                            "description": "URL da imagem do livro"
+                                            "description": "URL da imagem do livro",
+                                            "example": "https://m.media-amazon.com/images/I/517sVQygmHL._SY445_SX342_.jpg"
+                                        },
+                                        "price": {
+                                            "type": "integer",
+                                            "description": "Preço do produto",
+                                            "example": "22.50"
+                                        },
+                                        "units": {
+                                            "type": "integer",
+                                            "description": "Quantidade de produto disponivel",
+                                            "example": "20"
+                                        },
+                                        "view": {
+                                            "type": "integer",
+                                            "description": "Numero de visualizações do produto",
+                                            "example": "1500"
+                                        },
+                                        "type": {
+                                            "type": "string",
+                                            "description": "Array de categorias atribuidas ao livro",
+                                            "example": "['comedia', 'livre']"
+                                        },
+                                        "description": {
+                                            "type": "string",
+                                            "description": "Descrição do livro. max: 1500 characters",
+                                            "example": "Em 'O Diário de um Banana', mergulhe na hilária vida de Greg Heffley, um adolescente desajeitado que enfrenta desafios diários na escola e em casa. Suas aventuras são registradas com humor único, revelando as lutas universais da adolescência. Uma jornada irresistível repleta de risadas e situações constrangedoras."
                                         }
                                     },
                                     "required": [
@@ -63,7 +93,12 @@
                                         "author",
                                         "bookDate",
                                         "avaliation",
-                                        "image"
+                                        "image", 
+                                        "perice",
+                                        "units",
+                                        "view",
+                                        "type",
+                                        "description"
                                     ]
                                 }
                             }
@@ -156,7 +191,7 @@
                                             "description": "Número de visualizações"
                                         },
                                         "type": {
-                                            "type": "array",
+                                            "type": "string",
                                             "items": {
                                                 "type": "string"
                                             },
@@ -164,7 +199,8 @@
                                         },
                                         "description": {
                                             "type": "string",
-                                            "description": "Descrição do livro"
+                                            "description": "Descrição do livro",
+                                            "example":"['comedia', 'livre']"
                                         }
                                     },
                                     "required": [
@@ -182,6 +218,26 @@
                                 }
                             }
                         }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Deleta um livro da base de dados",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": false,
+                        "description": "id do livro especifico a ser pesquisado",
+                        "schema": {
+                            "type": "integer",
+                            "minimun": 1
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
                     }
                 }
             },

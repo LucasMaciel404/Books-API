@@ -1,23 +1,11 @@
-const bookServices = require("../services/bookServices");
+const bookServices = require("./../services/bookServices");
 const MyBookService = new bookServices();
 
 class BookController {
-    
-    async postLogin(req, resp) {
-        try {
-            const { email, senha } = req.body;
-            const user = await MyUserService.Login(email, senha);
-            resp.send('ola Mundo');
-        } catch (e) {
-            resp.status(500);
-            resp.send(e.message);
-        }
-    }
 
     async getAllBooks(req, resp) {
         try {
             const Books = await await MyBookService.getAllBooks();
-            console.log(Books)
             resp.send(Books);
         } catch (e) {
             resp.status(500);
@@ -47,7 +35,7 @@ class BookController {
         try {
             const newBook = req.body;
             if (!Array.isArray(newBook)) {
-                throw new Error("O corpo da requisição deve ser um array de Livros.");
+                resp.send("O corpo da requisição deve ser um array de Livros." + newBook);
             }
             newBook.forEach(book => {
                 if (book.name && book.author && book.year && book.stars && book.image && book.price && book.units && book.view && book.description && book.type) {

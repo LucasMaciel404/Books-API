@@ -1,6 +1,5 @@
-// esta é minha tabela para guardar as sessions dos meus usuarios
 const { DataTypes } = require('sequelize');
-const sequelize = require('./../ModelDB/conect/bd').Connection;
+const sequelize = require('./connect').Connection;
 
 const Session = sequelize.define('Session', {
   sid: {

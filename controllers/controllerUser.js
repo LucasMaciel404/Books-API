@@ -1,4 +1,4 @@
-const UserServices = require("../services/userServices");
+const UserServices = require("./../services/userServices");
 const MyUserService = new UserServices();
 
 class UserController {
@@ -24,7 +24,6 @@ class UserController {
     async getAllUsers(req, resp) {
         try {
             const Users = await await MyUserService.getAllUsers();
-            console.log(Users)
             resp.send(Users);
         } catch (e) {
             resp.status(500);
@@ -41,21 +40,6 @@ class UserController {
             } else {
                 resp.status(422);
                 resp.send("This ID is not valid.")
-            }
-        } catch (e) {
-            resp.status(500);
-            resp.send(e.message);
-        }
-    }
-    async getUserByEmail(req, resp) {
-        try {
-            const email = req.body.email;
-            if (email && String(email)) {
-                const Usuario = await MyUserService.getUserByEmail(email);
-                resp.send(Usuario);
-            } else {
-                resp.status(422);
-                resp.send("This email is not valid.")
             }
         } catch (e) {
             resp.status(500);

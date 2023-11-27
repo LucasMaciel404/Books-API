@@ -1,8 +1,7 @@
 const sequelize = require('sequelize');
-const database = require('../conect/bd').Connection;
+const database = require('./connect').Connection;
 
 const Usuario = database.define('usuarios', {
-    // meu ID será minha primary key
     id: {
         type: sequelize.INTEGER,
         autoIncrement: true,

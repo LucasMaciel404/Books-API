@@ -1,5 +1,5 @@
 const sequelize = require('sequelize');
-const database = require('../conect/bd').Connection;
+const database = require('./connect').Connection;
 
 const Livro = database.define('Livros', {
     id: {
@@ -41,7 +41,7 @@ const Livro = database.define('Livros', {
         allowNull: false
     },
     type:{
-        type: sequelize.ARRAY(sequelize.STRING),
+        type: sequelize.STRING,
         allowNull: false
     },
     description:{

@@ -9,7 +9,7 @@ class Config {
     sessions() {
         const session = require("express-session");
         const SequelizeStore = require("connect-session-sequelize")(session.Store);
-        const connection = require("./Models/ModelDB/conect/bd").Connection;
+        const connection = require("./Models/connect").Connection;
         // Configurando o Session:
         app.use(session({
             secret: 'Chellenger',
@@ -21,24 +21,6 @@ class Config {
             resave: false,
             saveUninitialized: false,
         }));
-    }
-    mySwagger() {
-
-
-        const swaggerUi = require('swagger-ui-express');
-        const swaggerDOC = require('./swagger.json');
-
-        app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerDOC));
-
-    } 
-    setCofig() {
-
-
-        const express = require("express");
-        const cors = require("cors");
-
-        app.use(express.json());
-        app.use(cors({ origin: "*" })); // Liberando do acesso para todos
     }
 }
 module.exports = Config

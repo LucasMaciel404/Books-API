@@ -7,6 +7,5 @@ const router = Router();
 
 router.post('/Login', Controller.postLogin);
 router.post('/Register', Controller.postRegister);
-router.get('/emailUser', Controller.getUserByEmail);
 
 module.exports = router;
