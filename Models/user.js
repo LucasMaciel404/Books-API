@@ -8,7 +8,7 @@ const Usuario = database.define('usuarios', {
         allowNull: false,
         primaryKey: true
     },
-    nome:{
+    name:{
         type: sequelize.STRING,
         allowNull: false,
     },
@@ -16,7 +16,7 @@ const Usuario = database.define('usuarios', {
         type: sequelize.STRING,
         allowNull: false
     },
-    senha:{
+    password:{
         type: sequelize.STRING,
         allowNull: false
     },

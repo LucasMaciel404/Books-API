@@ -7,9 +7,6 @@ class userServices {
                 delete usuario.senha;
                 return usuario;
         }
-        async SessionVerify(userId) {
-                return (req.session.userId)
-        }
         async getAllUsers() {
                 const users = await Usuario.findAll();
                 let allUsers = [];
@@ -23,10 +20,6 @@ class userServices {
                         return novoObjeto;
                 });
                 return usuarios;
-        }
-        async createUser(arrayUser) {
-                const user = await Usuario.create(arrayUser);
-                return user;
         }
         async updateUser(id, arrayModificacoes) {
                 const usuario = await Usuario.findByPk(id); // Encontrar o usuário pelo ID
@@ -51,25 +44,6 @@ class userServices {
         async deleteUser(id) {
                 const user = await Usuario.destroy({ where: { id: id } });
                 return user;
-        }
-        async Login(email, senha) {
-                try {
-                        const usuarioEncontrado = await Usuario.findOne({ where: { email: email } });
-                        const Myuser = usuarioEncontrado.dataValues;
-
-                        if (Myuser.email) {
-                                if (Myuser.senha == senha) {
-                                        req.session.userId = Myuser.id;
-                                        return { status: true, msg: 'Sucesso!' }
-                                } else {
-                                        return { status: false, msg: 'Senha invalida.' };
-                                }
-                        } else {
-                                return { status: false, msg: 'Usuario invalido.' };
-                        }
-                } catch (error) {
-                        return { status: false, msg: `tipo de dados incompativeis. Erro: ${error}` };
-                }
         }
 
 }

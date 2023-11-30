@@ -3,7 +3,7 @@ const { Router }  = require("express");
 const UserController = require('../controllers/controllerUser');
 const Controller = new UserController();
 
-const router = Router(); 
+const router = Router();
 router.get('/', Controller.getAllUsers);
 router.get('/:id', Controller.getUser);
 
