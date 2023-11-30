@@ -27,6 +27,6 @@ SincDatabase().then(() => app.emit("SincDatabase")).catch(err => console.log(err
 const port = 8000;
 app.on('SincDatabase', () => {
     app.listen(port, () => {
-        console.log(`Running on port: http://localhost:${port}`);
+        console.log(`Running on port: http://localhost:${port}/doc`);
     });
 });
