@@ -3,7 +3,7 @@ Esta **Rest-API** tem o intuito de ser a principal API de conexão com o banco d
 
 # Como iniciar 
 Antes de tudo você não nessecita usar a API localmente, pois eu a hospedei em um servidor gratuito da Render
-para acessar a API e sua documentação acesse: https://books-bc6w.onrender.com/doc
+para acessar a API e sua documentação acesse: https://booksapi-o7wo.onrender.com/doc
 
 
 ### O que é preciso para execusão de forma local? </br>
