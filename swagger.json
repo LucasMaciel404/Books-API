@@ -9,13 +9,14 @@
         "version": "1.1.0"
     },
     "servers": [
+        
+        {
+            "description": "servidor online",
+            "url": "hhttps://booksapi-o7wo.onrender.com"
+        },
         {
             "description": "servidor local",
             "url": "http://localhost:8000/"
-        },
-        {
-            "description": "servidor online",
-            "url": "https://books-bc6w.onrender.com/"
         }
     ],
     "paths": {
