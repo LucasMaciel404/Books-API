@@ -16,12 +16,12 @@ const Connection = new Sequelize(DB_NAME, DB_USER, DB_PASS, {
     host: DB_HOST,
     dialect: DB_TYPE,
     port: DB_PORT,
-    dialectOptions: {
-        ssl: {
-            require: true,
-            rejectUnauthorized: false, // Permite conexões com certificados autoassinados (para desenvolvimento)
-        }
-    },
+    // dialectOptions: {
+    //     ssl: {
+    //         require: true,
+    //         rejectUnauthorized: false, // Permite conexões com certificados autoassinados (para desenvolvimento)
+    //     }
+    // },
 });
 
 const SincronizaDb = async () => {
