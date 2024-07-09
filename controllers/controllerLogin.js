@@ -4,11 +4,12 @@ const MyUserService = new UserServices();
 class LoginController {
     async postLogin(req, resp){
         try {
-            const email = req.body.email
-            const password = req.body.password
-            const retorno = MyUserService.Login(email, password)
+            const email = req.body.email;
+            const password = req.body.password;
+            const retorno = await MyUserService.Login(email, password);
+            console.log(retorno);
             if (retorno.status){
-                resp.status(200).send(retorno.msg)    
+                resp.status(200).send({status: 200, messege: retorno.msg, JWT: retorno.token});    
             }else{
                 resp.status(500).send(retorno.msg)
             }
