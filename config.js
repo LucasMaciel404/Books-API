@@ -1,3 +1,4 @@
+// Este arquivo foi feito para deixar o app.js mais simples de entender
 const express = require('express');
 const app = express();
 class Config {
