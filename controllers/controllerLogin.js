@@ -7,7 +7,7 @@ class LoginController {
             const email = req.body.email;
             const password = req.body.password;
             const retorno = await MyUserService.Login(email, password);
-            console.log(retorno);
+            
             if (retorno.status){
                 resp.status(200).send({status: 200, messege: retorno.msg, JWT: retorno.token});    
             }else{

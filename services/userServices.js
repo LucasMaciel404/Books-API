@@ -4,7 +4,7 @@ class userServices {
         async getUserByPk(id) {
                 const user = await Usuario.findByPk(id);
                 let usuario = { ...user.dataValues }
-                delete usuario.senha;
+                delete usuario.password;
                 return usuario;
         }
         async getAllUsers() {
@@ -15,7 +15,7 @@ class userServices {
                 }
                 let usuarios = allUsers.map(objeto => {
                         let novoObjeto = { ...objeto };
-                        delete novoObjeto.senha;
+                        delete novoObjeto.password;
 
                         return novoObjeto;
                 });

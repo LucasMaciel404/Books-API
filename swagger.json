@@ -9,16 +9,20 @@
         "version": "1.1.0"
     },
     "servers": [
-        
-        {
-            "description": "servidor online",
-            "url": "https://booksapi-o7wo.onrender.com/"
-        },
         {
             "description": "servidor local",
             "url": "http://localhost:8000/"
         }
     ],
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "apiKey",
+                "name": "x-access-token",
+                "in": "header"
+            }
+        }
+    },
     "paths": {
         "name": "Livros",
         "/books": {
@@ -30,7 +34,9 @@
                         "description": "OK"
                     }
                 },
-                "tags": ["My Books"]
+                "tags": [
+                    "My Books"
+                ]
             },
             "post": {
                 "summary": "Adicionar livros no banco de dados",
@@ -112,7 +118,9 @@
                         }
                     }
                 },
-                "tags": ["My Books"]
+                "tags": [
+                    "My Books"
+                ]
             },
             "responses": {
                 "200": {
@@ -141,7 +149,9 @@
                         "description": "OK"
                     }
                 },
-                "tags": ["My Books"]
+                "tags": [
+                    "My Books"
+                ]
             },
             "patch": {
                 "summary": "Atualiza livros no banco de dados",
@@ -229,7 +239,9 @@
                         }
                     }
                 },
-                "tags": ["My Books"]
+                "tags": [
+                    "My Books"
+                ]
             },
             "delete": {
                 "summary": "Deleta um livro da base de dados",
@@ -250,7 +262,9 @@
                         "description": "OK"
                     }
                 },
-                "tags": ["My Books"]
+                "tags": [
+                    "My Books"
+                ]
             },
             "responses": {
                 "200": {
@@ -265,9 +279,19 @@
                 "responses": {
                     "200": {
                         "description": "OK"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
                     }
                 },
-                "tags": ["My Users"]
+                "tags": [
+                    "My Users"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/users/{id}": {
@@ -289,9 +313,19 @@
                 "responses": {
                     "200": {
                         "description": "OK"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
                     }
                 },
-                "tags": ["My Users"]
+                "tags": [
+                    "My Users"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "patch": {
                 "summary": "Atualiza informações de um usuario",
@@ -318,22 +352,22 @@
                                     "type": "object",
                                     "properties": {
                                         "nome": {
-                                            "type":"string",
+                                            "type": "string",
                                             "description": "Nome do usuario",
                                             "example": "Lucas Maciel"
                                         },
                                         "email": {
-                                            "type":"string",
+                                            "type": "string",
                                             "description": "E-mail do usuario",
                                             "example": "maciellucas@gmail.com"
                                         },
                                         "senha": {
-                                            "type":"string",
+                                            "type": "string",
                                             "description": "senha do suario",
                                             "example": "123Abc!@#"
                                         },
                                         "favoritos": {
-                                            "type":"string",
+                                            "type": "string",
                                             "description": "Array de livros em string",
                                             "example": "Lucas Maciel"
                                         }
@@ -349,7 +383,14 @@
                         }
                     }
                 },
-                "tags": ["My Users"]
+                "tags": [
+                    "My Users"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "delete": {
                 "summary": "Deleta um usuario",
@@ -368,20 +409,120 @@
                 "responses": {
                     "200": {
                         "description": "OK"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
                     }
                 },
-                "tags": ["My Users"]
+                "tags": [
+                    "My Users"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
-        "tags": [
-            {
-              "name": "My Books",
-              "description": "Operações relacionadas a usuários"
-            },
-            {
-              "name": "My Users",
-              "description": "Operações relacionadas a produtos"
+        "/alth/login": {
+            "post": {
+                "summary": "Validação de login de usuario",
+                "description": "Esta rota permite realizar um login e pegar um token de acesso temporario jwt",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "description": "Email do usuario",
+                                        "example": "exemplo123@gmail.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "description": "Senha de acesso a conta",
+                                        "example": "senha123"
+                                    }
+                                },
+                                "required": [
+                                    "email",
+                                    "password"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "tags": [
+                    "Alth"
+                ]
             }
-          ]
-    }
+        },
+        "/alth/register": {
+            "post": {
+                "summary": "Permite a criação de um novo usuario",
+                "description": "Esta rota permite cadastrar um novo usuario",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "description": "Nome do usuario",
+                                        "example": "Nome Sobrenome"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "description": "Email do usuario",
+                                        "example": "exemplo123@gmail.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "description": "Senha de acesso a conta",
+                                        "example": "senha123"
+                                    }
+                                },
+                                "required": [
+                                    "name",
+                                    "email",
+                                    "password"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "tags": [
+                    "Alth"
+                ]
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "My Books",
+            "description": "Operações relacionadas a usuários"
+        },
+        {
+            "name": "My Users",
+            "description": "Operações relacionadas a usuários"
+        },
+        {
+            "name": "Alth",
+            "description": "Operações de validação de usuario"
+        }
+    ]
 }

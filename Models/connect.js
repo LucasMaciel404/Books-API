@@ -25,7 +25,7 @@ const Connection = new Sequelize(DB_NAME, DB_USER, DB_PASS, {
 const SincronizaDb = async () => {
     const Usuarios = require("./user");
     const Livros = require("./book");
-    const Session = require("./session");
+    // const Session = require("./session");
     await Connection.sync();
 }
 const TesteConexao = async () => {

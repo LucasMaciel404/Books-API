@@ -12,7 +12,6 @@ class userServices {
                         if(err){ return resp.status(401).end() };
                         
                         req.userId = decoded.userId;
-                        console.log(req.userId)
                         next()
                 })
         }
