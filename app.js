@@ -14,7 +14,7 @@ const Configs = new config();
 const app = express();
 
 // iniciando minhas sessions
-Configs.sessions();
+// Configs.sessions();
 
 const cors = require("cors");
 
@@ -28,7 +28,7 @@ app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerDOC));
 
 // Rotas principais
 app.use('/Users', jwt_Autenticate, Configs.routerUser);
-app.use('/Validate', Configs.routerLogin);
+app.use('/alth', Configs.routerLogin);
 app.use('/books', Configs.routerBook);
 
 // tratamento de rota nao encontrada "Erro: 404"
