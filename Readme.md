@@ -3,15 +3,13 @@ Esta **Rest-API** tem o intuito de ser a principal API de conexão com o banco d
 
 ### O que é preciso para execusão de forma local? </br>
 --> Versão utilizada do **Ñode.js** "no minimo": v18.16.0</br>
---> Além do **Node.js** você precisa de algumas depedencias, essas depedencias podem ser instaladas ao executar o comando npm install:
-``` 
-    // tente:
-    npm i
+--> Você vai precisar instalar e executar um servidor de codigo aberto como o Xampp:
+--> Após a instalação voce vai dar "start" no "apache" e em "mysql"
 
-    // ou 
-    npm install
-```
---> Faça um arquivo **".env"** passando as seguintes informações:
+<img align='start' src="https://upload.wikimedia.org/wikipedia/commons/d/de/XAMPP_Windows_10.PNG" width="500px"/>
+
+--> Faça um arquivo **".env"** na raiz do projeto e passe as seguintes informações:
+
 ```
 
     DB_HOST = localhost // host do banco de dados 
@@ -24,8 +22,19 @@ Esta **Rest-API** tem o intuito de ser a principal API de conexão com o banco d
     SECRET_JWT = mySecretTokenJWT // Secret para criptogradia do JWT
 
 ```
-após isso voce pode iniciar a API utilizando o comando:
-O seu vsCode deve estar com o diretorio do terminal no mesmo diretorio do arquivo app.js 
+
+--> Agora precisamos de algumas depedencias, essas depedencias podem ser instaladas ao executar o comando npm install na raiz do projeto:
+
+``` 
+    // tente:
+    npm i
+
+    // ou 
+    npm install
+```
+
+após isso voce pode iniciar a API utilizando o comando na raiz do projeto  
+
 ```
     node app.js
 ```
